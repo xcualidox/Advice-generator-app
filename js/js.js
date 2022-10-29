@@ -10,7 +10,7 @@ const adviceBlock = document.querySelector(".advice") ;
     then(response=>response.json()).
     then(data=>{
        id.innerHTML= `advice #${data.slip.id}`;
-       adviceBlock.innerHTML= data.slip.advice;
+       adviceBlock.innerHTML= `&OpenCurlyDoubleQuote;${data.slip.advice}&CloseCurlyDoubleQuote;`;
     });
 }
 // Function used to call fetchAdvice() and add animations
