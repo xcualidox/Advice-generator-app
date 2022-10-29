@@ -5,7 +5,8 @@ const id = document.querySelector(".advice-id") ;
 const adviceBlock = document.querySelector(".advice") ;
 //function used to fetch data 
  function fetchAdvice(){
-    fetch(' https://api.adviceslip.com/advice').
+    fetch(' https://api.adviceslip.com/advice',
+         {cache: "no-store"}).
     then(response=>response.json()).
     then(data=>{
        id.innerHTML= `advice #${data.slip.id}`;
