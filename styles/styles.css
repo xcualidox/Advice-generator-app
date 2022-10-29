@@ -1,0 +1,134 @@
+/* Basic styling */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap');
+:root{
+    --Light-Cyan: hsl(193, 38%, 86%);
+    --Neon-Green: hsl(150, 100%, 66%);
+    --Grayish-Blue: hsl(217, 19%, 38%);
+    --Dark-Grayish-Blue: hsl(217, 19%, 24%);
+    --Dark-Blue: hsl(218, 23%, 16%);
+}
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Manrope', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+body{
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--Dark-Blue);
+}
+/* main */
+main{
+    height: 100vh;
+    display: grid;
+    place-items: start center;
+    padding-inline: 1rem;
+    padding-top: 32%;
+}
+/* advice card */
+.advice-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.7rem;
+    background-color: var(--Dark-Grayish-Blue);
+    text-align: center;
+    padding-block: 2.3rem 3.6rem;
+    padding-inline: clamp(1.5rem, 1.3239rem + 0.7512vw, 2rem);
+    max-width: 34rem;
+    border-radius: 1rem;
+    position: relative;
+    animation: entrance 1s ease .1s 1 normal backwards;
+}
+.card-entrance{
+    animation: card-entrance 1s ease 0s 1 normal backwards;
+}
+.card-header .advice-id{
+    color: var(--Neon-Green);
+    font-size: clamp(0.7rem, 0.6648rem + 0.1502vw, 0.8rem);
+    text-transform: uppercase;
+    letter-spacing: .25rem;
+}
+.advice-card .message{
+    display: none;
+}
+.advice-card .advice{
+    font-size: clamp(1.5rem, 1.412rem + 0.3756vw, 1.75rem);
+    color: var(--Light-Cyan);
+    font-weight: 800;
+}
+.advice-card figure{
+    width: 100%;
+}
+.divider{
+    width: 100%;
+}
+.divider.desktop{
+    display: none;
+}
+.advice-card .advice-btn{
+    position: absolute;
+    display: grid;
+    place-items: center;
+    background-color: var(--Neon-Green);
+    border: none;
+    padding: 1.2rem;
+    border-radius: 50%;
+    bottom: -2rem;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    
+}
+.rotation{
+    animation: ratation 1s ease 0s 1 normal backwards;
+}
+/* Animations */
+@keyframes ratation {
+	0% {
+		transform: rotate(0);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+@keyframes entrance {
+	0% {
+		opacity: 0;
+		transform: translateY(-50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+@keyframes card-entrance {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+/* Media queries */
+@media(min-width:45rem){
+    main{
+        padding-top: 0;
+        place-items: center;
+    }
+    .divider.desktop{
+        display: initial;
+    }
+    .divider.mobile{
+        display: none;
+    }
+    .advice-btn:hover{
+        box-shadow: 0px 0px 50px 5px var(--Neon-Green);
+    }
+}
